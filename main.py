@@ -39,9 +39,10 @@ def finish_exact_task(surname, name, task_id):
 
 def fill_templates(variant, surname):
     for task in variant:
-        for conditions in task['conditions']:
+        for condition in task['conditions']:
             for key in ['path', 'owner', 'group']:
-                conditions[key] = conditions[key].replace('SURNAME', translit(surname.lower(),'ru', reversed=True))
+                if key in condition:
+                    condition[key] = condition[key].replace('SURNAME', translit(surname.lower(),'ru', reversed=True))
 
 
 def main():
