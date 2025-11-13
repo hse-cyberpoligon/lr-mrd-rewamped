@@ -1,17 +1,12 @@
-import os, random
+import os
 import subprocess
 from pathlib import Path
-
-
-def random_permissions():
-    r07 = lambda: str(random.randint(0, 7)) 
-    return r07() + r07() + r07()
 
 
 def get_mrd_properties(path):
     # 0 - метка безопасности 1 - уровень целостности 2 - [категории]  3 - [флаги]
     if not os.path.exists(path):
-        raise FileNotFoundError
+        raise RuntimeError
     properties = subprocess.check_output(['pdp-ls', '-Md', path], text=True)
     properties = properties.split()[-2].split(':')
     properties[2] = [] if properties[2] == 'Нет' else properties[2].split(',')
@@ -20,14 +15,12 @@ def get_mrd_properties(path):
 
 
 def check_1_exist(path, type):
-    result = False
     if type == 'f':
-        result = os.path.isfile(path)
+        return os.path.isfile(path)
     elif type == 'd':
-        result = os.path.isdir(path)
+        return os.path.isdir(path)
     else:
-        raise ValueError
-    return result
+        return os.path.isfile(path) or os.path.isdir(path)
 
 
 def check_2_perms(path, correct_permissions):
