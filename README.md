@@ -56,4 +56,4 @@ chmod a=rx Checker
 Активируем venv.
 Скачиваем `pip3 install nuitka`.
 Скачиваем `apt install patchelf`.
-Выполняем команду: `nuitka --standalone --onefile --follow-imports --include-package=transliterate main.py`
+Выполняем команду: `nuitka --standalone --onefile --follow-imports main.py`
