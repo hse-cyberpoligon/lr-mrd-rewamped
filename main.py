@@ -83,7 +83,7 @@ def main():
 
         for task_id in list(tasks):
             # tasks present
-            task = next((task for task in variants if task['id'] == task_id), None)
+            task = next((task for task in target_variant if task['id'] == task_id), None)
             task_completed = True
 
             if task is not None:
