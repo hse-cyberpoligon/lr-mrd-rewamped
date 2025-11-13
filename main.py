@@ -5,14 +5,14 @@ import requests, time, os          # type: ignore
 import json
 
 LAB_NAME = "Мандатное разграничение доступа Astra Linux"
-
+LAB_SLUG = "mandatnoe-razgranichenie-dostupa-astra-linux"
 
 def request_tasks(surname, name):
     print("Запрос заданий для выполнения...")
     url = "http://172.18.4.200:8080/api/start"
     payload = {
         "username":   surname + "_" + name,
-        "lab_slug":   "mandatnoe-razgranichenie-dostupa-astra-linux"
+        "lab_slug":   LAB_SLUG
     }
     payload = json.dumps(payload).encode('utf-8')
 
@@ -23,10 +23,10 @@ def request_tasks(surname, name):
 
 
 def finish_exact_task(surname, name, task_id):
-    url = "http://172.18.4.200:8080/api/end"
+    url = "http://172.18.4.200:8080/api/answers"
     payload = {
         "user":   surname + "_" + name,
-        "lab_slug":   "mandatnoe-razgranichenie-dostupa-astra-linux",
+        "lab_slug":   LAB_SLUG,
         "task": task_id
     }
     payload = json.dumps(payload).encode('utf-8')
@@ -145,8 +145,10 @@ def main():
             if task_completed:
                 try:
                     finish_exact_task(surname, name, task_id)
-                except Exception:
-                    print("Не удалось оповестить сервер о выполненном задании.\nНажми любую клавишу, чтобы продолжить")
+                except Exception as ex:
+                    print("Не удалось оповестить сервер о выполненном задании.\n", ex)
+                    input()
+                    print(f"Нажмите любую кнопку для продолжения...")
 
                 tasks.remove(task_id)
             else:
