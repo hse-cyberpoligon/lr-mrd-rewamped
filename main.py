@@ -57,7 +57,7 @@ def main():
         print(response)
         exit()
 
-    tasks = list(response['tasks'])
+    tasks = sorted(response['tasks'])
     lab_type = response['type'].lower()
 
     show_tips = True
@@ -83,7 +83,7 @@ def main():
 
         for task_id in list(tasks):
             # tasks present
-            task = next((task for task in variants if task['id'] == task_id), __default=None)
+            task = next((task for task in variants if task['id'] == task_id), None)
             task_completed = True
 
             if task is not None:
