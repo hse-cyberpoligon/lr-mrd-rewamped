@@ -1,2 +1,2 @@
 requests
-slugify
+python-slugify
