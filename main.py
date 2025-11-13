@@ -1,7 +1,7 @@
 from variants import variants
-from transliterate import translit # type: ignore
+from slugify import slugify
 from utils    import *
-import requests, time, os          # type: ignore
+import requests, time, os
 import json
 
 LAB_NAME = "Мандатное разграничение доступа Astra Linux"
@@ -11,7 +11,7 @@ def request_tasks(surname, name):
     print("Запрос заданий для выполнения...")
     url = "http://172.18.4.200:8080/api/start"
     payload = {
-        "username":   surname + "_" + name,
+        "pnet_login":   slugify(surname + "_" + name),
         "lab_slug":   LAB_SLUG
     }
     payload = json.dumps(payload).encode('utf-8')
@@ -25,7 +25,7 @@ def request_tasks(surname, name):
 def finish_exact_task(surname, name, task_id):
     url = "http://172.18.4.200:8080/api/answers"
     payload = {
-        "user":   surname + "_" + name,
+        "pnet_login":   slugify(surname + "_" + name),
         "lab_slug":   LAB_SLUG,
         "task": task_id
     }
@@ -41,7 +41,7 @@ def fill_templates(variant, surname):
         for condition in task['conditions']:
             for key in ['path', 'owner', 'group']:
                 if key in condition:
-                    condition[key] = condition[key].replace('SURNAME', translit(surname.lower(),'ru', reversed=True))
+                    condition[key] = condition[key].replace('SURNAME', slugify(surname.lower()))
 
 
 def main():
