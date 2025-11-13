@@ -29,9 +29,8 @@ def finish_exact_task(surname, name, task_id):
         "lab_slug":   LAB_SLUG,
         "task": task_id
     }
-    payload = json.dumps(payload).encode('utf-8')
 
-    response = requests.request("POST", url, data=payload)
+    response = requests.post(url, json=payload)
     response.encoding = 'utf-8'
     response = json.loads(response.text)
     return response
@@ -145,10 +144,9 @@ def main():
             if task_completed:
                 try:
                     finish_exact_task(surname, name, task_id)
-                except Exception as ex:
-                    print("Не удалось оповестить сервер о выполненном задании.\n", ex)
+                except Exception:
+                    print("Не удалось оповестить сервер о выполненном задании.\nНажми любую клавишу, чтобы продолжить")
                     input()
-                    print(f"Нажмите любую кнопку для продолжения...")
 
                 tasks.remove(task_id)
             else:
@@ -163,7 +161,6 @@ def main():
         
 
     print(f"Лабораторная работа завершена!")
-    print(f"Ответ сервера: {response['message']}")
     input()
     input()
     exit()

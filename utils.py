@@ -47,7 +47,7 @@ def check_4_group(path, correct_group):
     if not os.path.exists(path):
         return False
     
-    real_owner = Path(path).owner()
+    real_owner = Path(path).group()
     result = True if real_owner == correct_group else False
 
     return result
