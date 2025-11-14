@@ -28,7 +28,7 @@ pz_variant = [
             {
                 'path': '/Совершенно_секретно/Совершенно_секретно.txt',
                 'type': 'f',
-                'permissions': '770',
+                'permissions': '660',
                 # 'owner': 'root',
                 'group': 'secret_users',
                 'privacy_label': 'Совершенно_секретно',
@@ -60,7 +60,7 @@ pz_variant = [
             {
                 'path': '/Совершенно_секретно/Секретно/Секретно.txt',
                 'type': 'f',
-                'permissions': '770',
+                'permissions': '660',
                 # 'owner': 'root',
                 'group': 'secret_users',
                 'privacy_label': 'Секретно',
