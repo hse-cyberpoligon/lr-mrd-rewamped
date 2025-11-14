@@ -143,7 +143,10 @@ def main():
 
             if task_completed:
                 try:
-                    finish_exact_task(surname, name, task_id)
+                    resp = finish_exact_task(surname, name, task_id)
+                    print("Задание", task_id, "выполнено!")
+                    time.sleep(1)
+                    time_passed += 1
                 except Exception:
                     print("Не удалось оповестить сервер о выполненном задании.\nНажми любую клавишу, чтобы продолжить")
                     input()
