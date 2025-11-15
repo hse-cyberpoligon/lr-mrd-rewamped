@@ -257,47 +257,47 @@ hw_variant = [
         'conditions': [
             {
                 'path': '/ОсобойВажности_SURNAME',
-                'owner': 'SURNAME3',
+                'group': 'SURNAME3',
             },
             {
                 'path': '/ОсобойВажности_SURNAME/Рапорт_SURNAME',
-                'owner': 'SURNAME3',
+                'group': 'SURNAME3',
             },
             {
                 'path': '/ОсобойВажности_SURNAME/ЗаявкаОбслуживаниеБСП_SURNAME',
-                'owner': 'SURNAME3',
+                'group': 'SURNAME3',
             },
             {
                 'path': '/ОсобойВажности_SURNAME/РасписаниеПроверок',
-                'owner': 'SURNAME3',
+                'group': 'SURNAME3',
             },
             {
                 'path': '/ОсобойВажности_SURNAME/СовершенноСекретно_SURNAME',
-                'owner': 'SURNAME2',
+                'group': 'SURNAME2',
             },
             {
                 'path': '/ОсобойВажности_SURNAME/СовершенноСекретно_SURNAME/Отпускные',
-                'owner': 'SURNAME2',
+                'group': 'SURNAME2',
             },
             {
                 'path': '/ОсобойВажности_SURNAME/СовершенноСекретно_SURNAME/Форма4_SURNAME',
-                'owner': 'SURNAME2',
+                'group': 'SURNAME2',
             },
             {
                 'path': '/ОсобойВажности_SURNAME/СовершенноСекретно_SURNAME/Секретно_SURNAME',
-                'owner': 'SURNAME1',
+                'group': 'SURNAME1',
             },
             {
                 'path': '/ОсобойВажности_SURNAME/СовершенноСекретно_SURNAME/Секретно_SURNAME/Дежурства',
-                'owner': 'SURNAME1',
+                'group': 'SURNAME1',
             },
             {
                 'path': '/ОсобойВажности_SURNAME/СовершенноСекретно_SURNAME/Секретно_SURNAME/Шифровка',
-                'owner': 'SURNAME1',
+                'group': 'SURNAME1',
             },
             {
                 'path': '/ОсобойВажности_SURNAME/СовершенноСекретно_SURNAME/Секретно_SURNAME/Смета_SURNAME',
-                'owner': 'SURNAME1',
+                'group': 'SURNAME1',
             }
         ]
     },

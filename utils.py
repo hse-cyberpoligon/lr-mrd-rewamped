@@ -8,7 +8,7 @@ def get_mrd_properties(path):
     if not os.path.exists(path):
         raise RuntimeError
     properties = subprocess.check_output(['pdp-ls', '-Md', path], text=True)
-    properties = properties.split()[4].split(':')
+    properties = properties.split()[-2].split(':')
     properties[2] = [] if properties[2] == 'Нет' else properties[2].split(',')
     properties[3] = [] if properties[3] == '0x0' else properties[3].split(',')
     return properties
